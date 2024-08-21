@@ -1,22 +1,16 @@
 ### ########
-#  1. SINTAXIS Y ESTRUCTURA BÁSICA   ***********
+#  1.    ***********
 ### ########
+
+
+# SINTAXIS Y ESTRUCTURA BÁSICA
+### ########
+
+
+# VARIABLES #
 
 nombre = "Haris"
 #print(nombre)
-
-#function
-"""
-def mi_funcion(e):
-    print("Esta es una función." +e)
-mi_funcion("tst param")
-"""
-
-"""def sumando():
-    res = 5 + 2
-    return res * 2
-print(sumando())"""
-
 
 # TIPOS DE DATOS
 # Lista, Tupla, Diccionario, Conjunto
@@ -37,13 +31,12 @@ _conjunto = { "AUTOMÓVIL", "AVIÓN", "CRUSERO" }
 x = [ 1, 2, 3, 4 ]
 y = [ 'a', 'b', 'c' ]
 z = [ x, y ]
-print(z[0][2],z[1][1])
-
+#print(z[0][2],z[1][1])
 
 print("---")
 
-
 #CONDICIONALES
+# if, else, elif
 
 """x = 189
 
@@ -80,8 +73,20 @@ while a < 10 :
     print(a)
     a, b = b, a+b"""
 
+
 #  FUNCIONES
 ### ########
+
+"""
+def mi_funcion(e):
+    print("Esta es una función." +e)
+mi_funcion("tst param")
+"""
+
+"""def sumando():
+    res = 5 + 2
+    return res * 2
+print(sumando())"""
 
 """def simplefuntion(name):
     print( f"NOMBRE FN: {name}" )
@@ -255,12 +260,12 @@ diccAnidado = {
 }
 
 diccAnidado["diccMateria2"]["HORASSEMANA"] = 10                # Modificar un valor.
-print( "HORAS:",diccAnidado["diccMateria2"]["HORASSEMANA"] )
+#print( "HORAS:",diccAnidado["diccMateria2"]["HORASSEMANA"] )
 
 #Acceder a un valor específico.
-print( diccAnidado["diccMateria"]["NOMBREMT"] )                # Imprime MATEMATICAS.
-print( diccAnidado["diccMateria"]["GRADOS"] )                  # Imprime {'JORNADA': 'DIURNA', 'NUMALUMNOS': 200}
-print( diccAnidado["diccMateria2"]["GRADOS"]["NUMALUMNOS"] )   # Imprime 200
+#print( diccAnidado["diccMateria"]["NOMBREMT"] )                # Imprime MATEMATICAS.
+#print( diccAnidado["diccMateria"]["GRADOS"] )                  # Imprime {'JORNADA': 'DIURNA', 'NUMALUMNOS': 200}
+#print( diccAnidado["diccMateria2"]["GRADOS"]["NUMALUMNOS"] )   # Imprime 200
 
 
 # TUPLA #
@@ -272,11 +277,76 @@ coordenadasTupla = ( 10, 4, 7 )
 #Desempaquetado
 #Desempaqueta los elementos de la tupla en variables
 #Las tuplas no pueden ser modificadas después de su creación, a diferencia de las listas.
-#Se pueden acceder a las tuplas, no solo por posición si no también por nombres.
 x, y, z = coordenadasTupla
 
 # Tuplas nombradas (namedtuples)
+#Se pueden acceder a las tuplas, no solo por posición si no también por nombres.
 from collections import namedtuple
 nuevaTupla = namedtuple('nuevatupla',['a','b'])
 tp  = nuevaTupla(7,4)
-print(tp.a,tp.b)
+#print(tp.a,tp.b)
+
+
+# MANIPULACIÓN DE ESTRUCTURAS DE DATOS #
+
+# Iteración sobre estructuras (lista, diccionario, tupla, conjunto, ...)
+
+# Bucle for
+
+#Iterando Lista
+listaIterar = [ 1, 2, 3, 4, 5 ]
+for elemento in  listaIterar:
+    print(elemento)
+
+#Iterando Diccionario
+dicciIterar = { "NOMBRE":"CAROLINA", "NUMCARAS":3, "EMAIL":"correo@correo.com" }
+for elemento in dicciIterar:
+    print()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
