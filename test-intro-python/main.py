@@ -1,7 +1,6 @@
 ### ########
 #  1. SINTAXIS Y ESTRUCTURA BÁSICA   ***********
 ### ########
-from pprint import pprint
 
 nombre = "Haris"
 #print(nombre)
@@ -33,6 +32,12 @@ _diccionario = { "Nombre": "Haris", "Edad": 21 }
 
 #Conjunto
 _conjunto = { "AUTOMÓVIL", "AVIÓN", "CRUSERO" }
+
+#Anidar listas
+x = [ 1, 2, 3, 4 ]
+y = [ 'a', 'b', 'c' ]
+z = [ x, y ]
+print(z[0][2],z[1][1])
 
 
 print("---")
@@ -68,6 +73,12 @@ for conjunto in _conjunto :
 while y <= 10:
     print(y)
     y += 1"""
+
+"""#Fibonacci
+a, b = 0, 1
+while a < 10 :
+    print(a)
+    a, b = b, a+b"""
 
 #  FUNCIONES
 ### ########
@@ -109,6 +120,7 @@ suma = lambda arg1, arg2 :  arg1 + arg2
 ### ########
 # 2. MANEJO DE DATOS Y ESTRUCTURAS   ***********
 ### ########
+
 
 #listas
 #Estructuras de datos mutables y ordenadas.
@@ -159,21 +171,42 @@ testslicing7 = lista2[ 2::2 ]  # imprime desde la posición 2, hasta la última,
 #print(autos)            # La lista original no se modifica.
 
 
-#Diccionarios#
-#Estructuras de datos mutables, que aalmacenan pares clave:valor. DEFINICIÓN { }
-# Methods --> get, update, del, pop, keys, values, items
+# Diccionarios #
+#Colección desordenada mutable, clase:valor. Definición { }
+#Methods = get, update, del, pop, keys, values, items
 
 #CREACIÓN:
-usuario = { "NOMBRE":"Sasha", "EDAD": 1, "CIUDAD":"Medellin", "COLOR":"BLANCA" }
+usuario = {
+    "NOMBRE":"Sasha",
+    "EDAD": 1,
+    "CIUDAD":"Medellin",
+    "COLOR":"BLANCA"
+}
 
-#modificación:
+#MODIFICACIÓN:
+diccUser = {
+    "NOMBRE":"SASHA",
+    "EDAD":2,
+    "COLOR":"BLANCA",
+    "CIUDAD":"MEDELLÍN"
+}
+
+diccUser.update({"COLOR":"ACTUALIZANDO"})  # update
+#del diccUser["CIUDAD"]                    # del
+Get     = diccUser.get("EDAD")             # get
+Keys    = diccUser.keys()                  # keys
+Values  = diccUser.values()                # values
+Items   = diccUser.items()                 # items
+Pop     = diccUser.pop("CIUDAD")           # pop
+
+#AMPLIACIÓN DE MÉTODOS:
 
 # get()
 # No devuelve error, aunque no exista la clave a obtener.
 
-"""usuario["HOBBY"] = "Comer"         # Agrega un nuevo par clave-valor al final.
-usuario["EDAD"] =  1.5             # Modifica el valor de la clave EDAD.
-getnombre  = usuario.get("NOMBRE") # Obtiene el valor de la clave NOMBRE.
+"""usuario["HOBBY"] = "Comer"            # Agrega un nuevo par clave-valor al final.
+usuario["EDAD"] =  1.5                   # Modifica el valor de la clave EDAD.
+getnombre  = usuario.get("NOMBRE")       # Obtiene el valor de la clave NOMBRE.
 getdefault = usuario.get("CLIMA","Frío") # Usando get(), con valor por default.
 getnone    = usuario.get("VEHICULO")     # Obtener el valor de una clave inexistente.
 """
@@ -200,6 +233,36 @@ valuess = usuario.values()
 #Obtiene todos los pares clave-valor del diccionario.
 itemss = usuario.items()
 
+
+#Anidación de diccionarios.
+diccAnidado = {
+    "diccMateria": {
+        "NOMBREMT":"MATEMATICAS",
+        "HORASSEMANA":14,
+        "GRADOS":{
+            "JORNADA":"DIURNA",
+            "NUMALUMNOS":120
+        }
+    },
+    "diccMateria2": {
+        "NOMBREMT": "MATEMATICAS",
+        "HORASSEMANA": 14,
+        "GRADOS": {
+            "JORNADA": "DIURNA",
+            "NUMALUMNOS": 200
+        }
+    }
+}
+
+diccAnidado["diccMateria2"]["HORASSEMANA"] = 10                # Modificar un valor.
+print( "HORAS:",diccAnidado["diccMateria2"]["HORASSEMANA"] )
+
+#Acceder a un valor específico.
+print( diccAnidado["diccMateria"]["NOMBREMT"] )                # Imprime MATEMATICAS.
+print( diccAnidado["diccMateria"]["GRADOS"] )                  # Imprime {'JORNADA': 'DIURNA', 'NUMALUMNOS': 200}
+print( diccAnidado["diccMateria2"]["GRADOS"]["NUMALUMNOS"] )   # Imprime 200
+
+
 # TUPLA #
 # Colecciones ordenadas e inmutables. Definición ( ).
 
@@ -209,31 +272,11 @@ coordenadasTupla = ( 10, 4, 7 )
 #Desempaquetado
 #Desempaqueta los elementos de la tupla en variables
 #Las tuplas no pueden ser modificadas después de su creación, a diferencia de las listas.
+#Se pueden acceder a las tuplas, no solo por posición si no también por nombres.
 x, y, z = coordenadasTupla
 
 # Tuplas nombradas (namedtuples)
 from collections import namedtuple
 nuevaTupla = namedtuple('nuevatupla',['a','b'])
-tp     = nuevaTupla(7,4)
+tp  = nuevaTupla(7,4)
 print(tp.a,tp.b)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
