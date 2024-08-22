@@ -277,7 +277,7 @@ coordenadasTupla = ( 10, 4, 7 )
 #Desempaquetado
 #Desempaqueta los elementos de la tupla en variables
 #Las tuplas no pueden ser modificadas después de su creación, a diferencia de las listas.
-x, y, z = coordenadasTupla
+#x, y, z = coordenadasTupla
 
 # Tuplas nombradas (namedtuples)
 #Se pueden acceder a las tuplas, no solo por posición si no también por nombres.
@@ -293,47 +293,34 @@ tp  = nuevaTupla(7,4)
 
 # Bucle for
 
-#Iterando Lista
-listaIterar = [ 1, 2, 3, 4, 5 ]
+#ITERANDO LLISTA
+"""listaIterar = [ 1, 2, 3, 4, 5 ]
 for elemento in  listaIterar:
-    print(elemento)
+    print()"""
+
+#ITERANDO DICCIONARIO
+dicciIterar = {
+    "NOMBRE":"CAROLINA",
+    "NUMCARAS":3,
+    "EMAIL":"correo@correo.com"
+}
 
 #Iterando Diccionario
-dicciIterar = { "NOMBRE":"CAROLINA", "NUMCARAS":3, "EMAIL":"correo@correo.com" }
-for elemento in dicciIterar:
-    print()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Iterar sobre las claves
+"""for elemento2 in dicciIterar:
+    print(elemento2)"""
+#Iterando Diccionario
+#Iterar sobre los valores
+"""for elemento3 in dicciIterar.values():
+    print( elemento3 )"""
+# Iterando Diccionario
+# Iterar sobre clave,valor en formato normal de diccionario.
+for elemclave,elemvalor in dicciIterar.items():
+    print( f"{elemclave}:{elemvalor}" )
+#Iterando Diccionario
+#Iterar sobre clave,valor, en forma de dupla
+"""for elementox in dicciIterar.items():
+    print( elementox )"""
 
 
 
