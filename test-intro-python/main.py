@@ -1,7 +1,11 @@
 ### ########
 #  1.    ***********
 ### ########
+from ast import increment_lineno
+from operator import length_hint
+from tkinter.font import names
 
+from fontTools.svgLib.path.parser import UPPERCASE
 
 # SINTAXIS Y ESTRUCTURA BÁSICA
 ### ########
@@ -287,16 +291,18 @@ tp  = nuevaTupla(7,4)
 #print(tp.a,tp.b)
 
 
-# MANIPULACIÓN DE ESTRUCTURAS DE DATOS #
+#
+# MANIPULACIÓN DE ESTRUCTURAS DE DATOS
+#
 
-# Iteración sobre estructuras (lista, diccionario, tupla, conjunto, ...)
+# ITERACIÓN SOBRE ESTRUCTURAS (lista, diccionario, tupla, conjunto, ...)
 
 # Bucle for
 
-#ITERANDO LLISTA
+#ITERANDO LISTA
 """listaIterar = [ 1, 2, 3, 4, 5 ]
 for elemento in  listaIterar:
-    print()"""
+    print(elemento)"""
 
 #ITERANDO DICCIONARIO
 dicciIterar = {
@@ -304,23 +310,140 @@ dicciIterar = {
     "NUMCARAS":3,
     "EMAIL":"correo@correo.com"
 }
-
 #Iterando Diccionario
-#Iterar sobre las claves
+#Iterar sobre las claves  *
 """for elemento2 in dicciIterar:
     print(elemento2)"""
 #Iterando Diccionario
-#Iterar sobre los valores
+#Iterar sobre los valores  *
 """for elemento3 in dicciIterar.values():
     print( elemento3 )"""
 # Iterando Diccionario
-# Iterar sobre clave,valor en formato normal de diccionario.
-for elemclave,elemvalor in dicciIterar.items():
-    print( f"{elemclave}:{elemvalor}" )
+# Iterar sobre clave,valor en formato normal de diccionario.  *
+"""for elemclave,elemvalor in dicciIterar.items():
+    print( f"{elemclave}:{elemvalor}" )"""
 #Iterando Diccionario
-#Iterar sobre clave,valor, en forma de dupla
+#Iterar sobre clave,valor, en forma de dupla  *
 """for elementox in dicciIterar.items():
     print( elementox )"""
+
+#ITERANDO TUPLA
+"""tuplaIterar = ( 15, 4, 7, 26 )
+for elemento in tuplaIterar:
+    print( elemento )"""
+
+
+#COMBINACIÓN DE DIFERENTES ESTRUCTURAS
+
+#LISTA DE TUPLAS
+lista_tuplas = [
+    (1,'a'),
+    (2,'b'),
+    (3,'c')
+]
+"""print( lista_tuplas )  # Impresion normal, de la lista de tuplas, y su formato
+for elemtupl in lista_tuplas:
+    print( elemtupl )  # Imprime cada dupla separada.
+for num, letra in lista_tuplas:
+    print( f'NUMERO: {num}, LETRA: {letra}' )  #Imprime con sin formato de tupla. Lo esperado.
+"""
+#DICCIONARIO DE TUPLAS
+"""dicc_listas = {
+    'robots': ['Curiosity','Walle','Chapie'],
+    'Animes': ['Inuyasha','Damon Slayer','Jujutsu Kaisen']
+}
+print( dicc_listas )
+for claveelm, valelm in dicc_listas.items():
+    print( f' {claveelm}, {valelm} ' )"""
+
+#LISTA DE DICCIONARIOS
+lista_dicc = [
+    { "NOMBRE":"FirstName","EDAD":100 },
+    { "NOMBRE":"SecondName","EDAD":250 },
+    { "NOMBRE":"Third","EDAD":300 }
+]
+"""#print( lista_dicc )
+for elemdicc in lista_dicc:
+    print( elemdicc )   #Imprime cada par por separado, en formato diccionario"""
+"""for elementslist in lista_dicc:
+    print( f" NAME: {elementslist['NOMBRE']}, EDAD: {elementslist['EDAD']} " )"""
+
+
+# CONVERSIÓN ENTRE TIPOS DE ESTRUCTURAS
+
+# TRANSFORMAR DATOS DE UNA ESTRUCTURA A OTRA
+
+#LISTA A TUPLA
+Lista = [ 2, 4, 6, 8 ]
+Tupla = tuple(Lista)
+#print( Tupla )
+
+#TUPLA A LISTA
+Tupla2 = ( 10, 12, 14, 16 )
+Lista2 = list( Tupla2 )
+#print( Lista2 )
+
+#LISTA A CONJUNTO
+Lista3 = [ 18, 20, 22 ]
+Conjunto = set( Lista3 )
+#print( Conjunto )
+
+#DICCIONARIO A LISTA DE CLAVES Y VALORES
+"""Diccionario = { 'A':1, 'B':2, 'C':3 }
+CLAVES  = list( Diccionario.keys() )
+VALORES = list( Diccionario.values() )
+#print( CLAVES, VALORES )"""
+
+#LISTA DE TUPLAS A DICCIONARIO
+"""Lista_de_Tuplas  = [ ('UNO',1),('DOS',2),('TRES',3) ]
+DICCIONARIO = dict(Lista_de_Tuplas)
+print( DICCIONARIO )"""
+
+
+#
+# COMPRENSIONES
+#
+
+# LAS COMPRENSIONES SON UNA HERRAMIENTA PODEROSA PARA CREAR Y MANIPULAR COLECCIONES EN PYTHON.
+
+#COMPRENSIONES DE LISTAS
+#SINTAXIS
+#[ new_item for item in iterable if condition ]
+
+#LISTA DE NÚMEROS AL CUADRADO
+LNumeros = [ 1,2,3,4,5 ]
+#COMPRENSIÓN
+SQUARES = [ n ** 2 for n in LNumeros ]
+#print( SQUARES )
+
+#FILTRAR Y CONVERTIR A MAYÚSCULAS
+LNombres = [ "adolf", "socrates", "jacobo" ]
+#COMPRENSIÓN
+# CONVIERTES TODAS EN MAYÚSCULAS.
+UPPERCASE_LNAMES  = [ UPNAM.upper() for UPNAM in LNombres ]
+#print( UPPERCASE_LNAMES )
+# CONVIERTES EN MAYÚSCULAS SOLO LOS ELEMNTOS QUE INICIEN EN LA LETRA 'a'.
+UPPERCASE_LNAMES2 = [ UPNAM.upper() for UPNAM in LNombres if UPNAM.startswith('a') ]
+#print( UPPERCASE_LNAMES2 )
+
+#COMPRENSIONES DE DICCIONARIOS
+#SINTAXIS
+#{key_expression: value_expression for item in iterable if condition}
+SQUARES_DICT = { elm: elm ** 2 for elm in range(6) }
+#print( SQUARES_DICT )
+
+#COMPRENSION DE CONJUNTOS
+#SINTAXIS
+# {expression for item in iterable if condición}
+vocales_set = { letra for letra in 'piramides' }
+print( vocales_set )
+#CONJUNTO CON LONGITUDES DE PALABRAS
+words = [ "ATLÁNTICCO","ANTIOQUIA","CUNDINAMARCA" ]
+length_set = { len(word) for word in words }
+print( length_set )  # Número de longitudes únicas.
+
+
+
 
 
 
