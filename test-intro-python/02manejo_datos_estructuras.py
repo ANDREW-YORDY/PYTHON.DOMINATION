@@ -37,7 +37,7 @@ y = [ 'a', 'b', 'c' ]
 z = [ x, y ]
 #print(z[0][2],z[1][1])
 
-print("---")
+#print("---")
 
 #CONDICIONALES
 # if, else, elif
@@ -436,14 +436,16 @@ SQUARES_DICT = { elm: elm ** 2 for elm in range(6) }
 #SINTAXIS
 # {expression for item in iterable if condición}
 vocales_set = { letra for letra in 'piramides' }
-print( vocales_set )
+#print( vocales_set )
 #CONJUNTO CON LONGITUDES DE PALABRAS
 words = [ "ATLÁNTICCO","ANTIOQUIA","CUNDINAMARCA" ]
 length_set = { len(word) for word in words }
-print( length_set )  # Número de longitudes únicas.
+#print( length_set )  # Número de longitudes únicas.
 
 
 
+
+print("--MÓDULO #1#2 SUPERADO--")
 
 
 
